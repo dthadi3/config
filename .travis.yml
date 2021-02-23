@@ -1,4 +1,6 @@
 # use Docker-based container (instead of OpenVZ)
+dist: focal
+
 sudo: false
 
 language: scala
@@ -15,6 +17,11 @@ jobs:
        name: "test and docs on jdk11"
        script: sbt ++$TRAVIS_SCALA_VERSION test doc
        env: TRAVIS_JDK=11
+     - stage: jdk11
+       name: "test and docs on jdk11"
+       script: sbt ++$TRAVIS_SCALA_VERSION test doc
+       env: TRAVIS_JDK=11
+       arch: ppc64le
 
 env:
   global:
